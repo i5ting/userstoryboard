@@ -1,0 +1,2 @@
+module DemoscaffoldsHelper
+end
