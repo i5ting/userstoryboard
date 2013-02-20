@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  name: 第一个
   desc: MyString
 
 two:
-  name: MyString
+  name: 第二个
   desc: MyString

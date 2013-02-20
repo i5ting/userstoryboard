@@ -1,24 +1,30 @@
 <h1>Listing categorys</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+ <%= Category.roots.each{|x| p x.children} %>
+ 
+ <hr>
+<%= Category.roots.each{
+	|x|
+	x.child_ids
+	
+} %>
+<br />
 
-<% @categories.each do |c| %>
-  <tr>
-    <td><%= c.name %></td>
-    <td><%= c.desc %></td>
-    <td><%= link_to 'Show', c %></td>
-    <td><%= link_to 'Edit', edit_category_path(c) %></td>
-    <td><%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<ul id="menu">
+  <% Category.roots.each do |category| %>
+     <li> <%= link_to h(category.name), category %>
+        
+        <% unless category.children.empty? %>
+           <ul id="sub-menu"> 
+             <% category.children.each do |subcategory| %>
+                <li> link_to h(subcategory.name), subcategory </li>
+             <% end %>
+           </ul>
+        <% end %>
+     </li>
+  <% end %>
+</ul>
+
 
 <br />
 
