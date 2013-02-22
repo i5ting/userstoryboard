@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @project.desc %>
+</p>
+
+
+<h2>分类信息
+<% @project.categories.each do |c| %>
+	<li><%= c.name%></li>
+<% end %>
+
+
+
+
+<% @project.categories.build %>
+
+<h2>Add a category:</h2>
+<%= form_for([@project,@project.categories.build	]) do |f| %>
+	
+	<% if @project.errors.any? %>
+	<div id="errorExplanation">
+	  <h2><%= pluralize(@project.errors.count, "error") %> prohibited this post from being saved:</h2>
+	  <ul>
+	  <% @project.errors.full_messages.each do |msg| %>
+	    <li><%= msg %></li>
+	  <% end %>
+	  </ul>
+	</div>
+	<% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_area :desc %>
+  </div>
+   
+			 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+ 
+		   
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+
+
+
+<%= link_to 'add category', demoscaffolds_path %>
+
+ 
+

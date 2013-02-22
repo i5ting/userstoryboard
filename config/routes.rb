@@ -1,7 +1,13 @@
 Userstoryboard::Application.routes.draw do
-  resources :demoscaffolds
+  resources :posts do
+    resources :comments
+  end
 
-  resources :category
+
+  resources :projects do
+    resources :categories
+  end
+ 
   match '/categories' => 'category#create'
   
   # The priority is based upon order of creation:
