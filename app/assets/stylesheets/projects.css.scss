@@ -1,3 +1,23 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$project_item_width: 300px;
+$project_item_span_width: 250px;
+$project_item_span_margin: 25px;
+
+.project_item{
+	margin: 5px;
+	width : $project_item_width;
+	height: $project_item_width;
+	background-color:lightblue;
+	float:left;
+}
+
+.project_item span{
+	margin: $project_item_span_margin;
+	width:  $project_item_span_width;
+	height: $project_item_span_width;
+	background-color:white;
+	display:block;
+}

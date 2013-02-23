@@ -12,6 +12,7 @@
 
 
 <h2>分类信息
+<hr>
 <% @project.categories.each do |c| %>
 	<li><%= c.name%></li>
 <% end %>
@@ -21,7 +22,9 @@
 
 <% @project.categories.build %>
 
-<h2>Add a category:</h2>
+
+
+<h3>Add a category:</h3>
 <%= form_for([@project,@project.categories.build	]) do |f| %>
 	
 	<% if @project.errors.any? %>
@@ -51,15 +54,7 @@
 <% end %>
 
  
-		   
-
+		  
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
-
-
-
-<%= link_to 'add category', demoscaffolds_path %>
-
- 
-
