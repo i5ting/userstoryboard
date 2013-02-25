@@ -22,8 +22,19 @@ $ ->
 		# 	      height: 140,
 		# 	      modal: true
 		# 	    });
-		 
 	
+	
+	
+	
+	
+	ok = 
+      text: "OK",
+      click : ()->alert 1
+	
+	cancel= 
+      text: "cancel",
+      click : ()->$( this ).dialog( "close" );
+	     
 		
 	$( "#dialog-form" ).dialog({
 		autoOpen: false,
@@ -31,11 +42,7 @@ $ ->
 		width:  550,
 		modal:  true,
 		buttons:[
-			{
-		      text: "OK",
-		      click : ()->
-				alert 1
-		    }
+			ok,cancel
 		]
 		
     });
