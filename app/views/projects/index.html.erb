@@ -1,7 +1,13 @@
+
+<h1>
+	当前项目列表
+</h1>
+<hr>
 <% @projects.each do |project| %>
 <div class='project_item' id='<%=project.id%>'>
 		<span>
-			<%= project.name %>
+			<%= project.name %><br>
+			User Story总数：<%= project.categories.length %>
 		</span>
 	</div>
 <% end %>

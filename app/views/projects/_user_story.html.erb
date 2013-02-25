@@ -1,0 +1,14 @@
+<% @project.categories.each do |c| %>
+ 
+  
+  <h3>
+	  <%= !c.name.blank? ?  c.name : '你妹，这个user story 不可能是空啊' %>
+  </h3>
+  <div>
+    <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+	
+	<p>
+		<%= c.desc.html_safe() %>
+	</p>
+  </div>
+<% end %>

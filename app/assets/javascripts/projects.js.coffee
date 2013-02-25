@@ -8,3 +8,38 @@ $ ->
 		id = $(this).attr('id')
 		window.location.href='/projects/'+ id
 	
+	
+	$( "#accordion" ).accordion({
+	      heightStyle: "content"
+    });
+	
+	$("button").button().click (e) ->
+		e.preventDefault();
+		
+		$( "#dialog-form" ).dialog( "open" );
+		
+		# $( "#dialog-modal" ).dialog({
+		# 	      height: 140,
+		# 	      modal: true
+		# 	    });
+		 
+	
+		
+	$( "#dialog-form" ).dialog({
+		autoOpen: false,
+		height: 500,
+		width:  550,
+		modal:  true,
+		buttons:[
+			{
+		      text: "OK",
+		      click : ()->
+				alert 1
+		    }
+		]
+		
+    });
+	
+	 
+		
+		

@@ -1,0 +1,2 @@
+aaa = (s)->
+  alert s

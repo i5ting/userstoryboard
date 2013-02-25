@@ -1,28 +1,33 @@
-<%= form_for(@category) do |f| %>
+<% @project.categories.build %>
+<h3>增加User Story:</h3>
 
-	<% if @category.errors.any? %>
-	  <div id="error_explanation">
-	    <h2><%= pluralize(@category.errors.count, "error") %> prohibited this demoscaffold from being saved:</h2>
+<div id="dialog-form" title="Create new user">
+	<%= form_for([@project,@project.categories.build	]) do |f| %>
+	
+		<% if @project.errors.any? %>
+		<div id="errorExplanation">
+		  <h2><%= pluralize(@project.errors.count, "error") %> prohibited this post from being saved:</h2>
+		  <ul>
+		  <% @project.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+		<% end %>
 
-	    <ul>
-	    <% @category.errors.full_messages.each do |msg| %>
-	      <li><%= msg %></li>
-	    <% end %>
-	    </ul>
+	  <div class="field">
+	    <%= f.label :name %><br />
+	    <%= f.text_field :name %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :desc %><br />
+	    <%= f.text_area :desc,:cols => 70,:rows =>12 %>
+	  </div>
+   
+			 
+	  <div class="actions">
+	    <%= f.submit %>
 	  </div>
 	<% end %>
-	
-	<div class='field'>
-		<%= f.label :name %><br>
-		<%= f.text_field :name %>
-	</div>
-	
-	<div class='field'>
-		<%= f.label :desc %><br>
-		<%= f.text_field :desc %>
-	</div>
-	
-	<div class='actions'>
-		<%= f.submit %>
-	</div>
-<% end %>
+  
+</div>

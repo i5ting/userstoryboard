@@ -1,60 +1,29 @@
+><%= link_to 'projects/'+@project.name, projects_path %>>Uesr Story信息 
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
-
-<p>
-  <b>Desc:</b>
-  <%= @project.desc %>
-</p>
-
-
-<h2>分类信息
-<hr>
-<% @project.categories.each do |c| %>
-	<li><%= c.name%></li>
-<% end %>
 
 
 
+<div id="accordion">
+	<%= render 'user_story'%>
+</div>
 
-<% @project.categories.build %>
+<div style='display:none'>
+	<%= render 'category/form'%>	
+</div>
+
+<div style='margin-top:40px;'>
+	<button>增加新的User Story</button>
+</div>
 
 
-
-<h3>Add a category:</h3>
-<%= form_for([@project,@project.categories.build	]) do |f| %>
-	
-	<% if @project.errors.any? %>
-	<div id="errorExplanation">
-	  <h2><%= pluralize(@project.errors.count, "error") %> prohibited this post from being saved:</h2>
-	  <ul>
-	  <% @project.errors.full_messages.each do |msg| %>
-	    <li><%= msg %></li>
-	  <% end %>
-	  </ul>
-	</div>
-	<% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :desc %><br />
-    <%= f.text_area :desc %>
-  </div>
-   
-			 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
+<div id="dialog-modal"  title="Basic modal dialog">
+  <p>Adding the modal overlay screen makes the dialog look more prominent because it dims out the page content.</p>
+</div>
  
-		  
+
+
+
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
