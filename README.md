@@ -73,7 +73,15 @@ $( "#dialog-form" ).dialog({
  
  
  
+官网ajax指南
+ http://guides.rubyonrails.org/ajax_on_rails.html
  
- 
- 
- 
+rails3.2下的ajax指南       
+- http://chloerei.com/2012/04/21/rails-3-2-ajax-guide/
+
+如果想了解jquery ujs的原理可以参考
+-http://www.alfajango.com/blog/rails-3-remote-links-and-forms/
+
+rails实战圣经里的ajax部分
+http://ihower.tw/rails3/assets-and-ajax.html
+
