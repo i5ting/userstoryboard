@@ -5,47 +5,75 @@ rails g scaffold demoscaffold title:string body:text
  
  rails g migration add_ancestry_to_category ancestry:string
  
+ 下面是jqueryui的一段示例代码：
  
+ ```javascript
+   $( "#dialog-form" ).dialog({
+       autoOpen: false,
+       height: 300,
+       width: 350,
+       modal: true,
+       buttons: {
+         "Create an account": function() {
+           var bValid = true;
+           allFields.removeClass( "ui-state-error" );
  
+           bValid = bValid && checkLength( name, "username", 3, 16 );
+           bValid = bValid && checkLength( email, "email", 6, 80 );
+           bValid = bValid && checkLength( password, "password", 5, 16 );
  
-# 读后感
+           bValid = bValid && checkRegexp( name, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter." );
+           // From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
+           bValid = bValid && checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com" );
+           bValid = bValid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+ 
+           if ( bValid ) {
+             $( "#users tbody" ).append( "<tr>" +
+               "<td>" + name.val() + "</td>" +
+               "<td>" + email.val() + "</td>" +
+               "<td>" + password.val() + "</td>" +
+             "</tr>" );
+             $( this ).dialog( "close" );
+           }
+         },
+         Cancel: function() {
+           $( this ).dialog( "close" );
+         }
+       },
+       close: function() {
+         allFields.val( "" ).removeClass( "ui-state-error" );
+       }
+     });
+``` 
 
-看《简笔画技法图谱》一书，简笔画是老少皆宜的东西，我从中看出来的所有事物都是一样，想做好，就要分析，观察，做草图，再细化。
 
-与《精益创业》无差异 
-
-
-# 付费的人群归类
- 
- 
- 付费的人群归类
- 	-> 发烧友，小孩，女人，别人，良心
+```javascript
+ok = 
+  text: "OK",
+  click : ()->alert 1
 	
-	- 对于一些人，如90后，富二代中的各种极品来说，我归类为发烧友，其有冲动好玩阔绰炫富享乐的成分，只要他们敢兴趣就会付费
-	
-	- 小孩，国人父母都溺爱孩子，大部分自己省吃俭用，但对待孩子的教育却大方的很。
-	
-	- 女人，一个伤不起的群体，爱美是天性，25岁之后又为美而担心，于是乎手笔很大。
-	
-	- 礼下于别人，国人很令人不解的一点是，自己可以省吃俭用，对朋友，长辈，亲人，上级却可以大手大脚。礼是付费的一个大头，游戏早有此模式
-	
-	- 良心，若不重视知识产品，版权，谁也没办法啊
-	
-总结一句话，凡事还是要带给人价值，才是产品的真正价值。
+cancel= 
+  text: "cancel",
+  click : ()->$( this ).dialog( "close" );
+	     
+		
+$( "#dialog-form" ).dialog({
+	autoOpen: false,
+	height: 500,
+	width:  550,
+	modal:  true,
+	buttons:[
+		ok,
+		cancel
+	]
+		
+});
 
-
+```
  
  
-# 红海和蓝海
-
-做前无古人的事是需要勇气的
-直面竞争也需要勇气
-
-以前我觉得创造更容易成功
-
-现在我觉得都一样，成功是件很复杂的事情
-
-一个人应该善于面对竞争，竞争不是件坏事，说的俗点，没有对手你超谁去啊？没有对手就没有回档凌绝顶的感觉。
-于竞争中发展，并找到机遇，这就是创新，一个良好的循环必然要以此长存。
-
-学管理的时候学企业的生命周期，其寿命长度，我觉得是如此道理。
+ 
+ 
+ 
+ 
+ 
